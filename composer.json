@@ -1,0 +1,20 @@
+{
+    "name": "abishekrsrikaanth/blockchain",
+    "description": "PHP SDK to integrate with Block chain API",
+    "minimum-stability": "stable",
+    "keywords": ["blockchain", "block-chain", "block", "chain", "bitcoin", "api", "sdk"],
+    "authors": [
+        {
+            "name": "Abishek R Srikaanth",
+            "email": "abishek@technicaliti.me"
+        }
+    ],
+    "require": {
+        "guzzle/guzzle": "3.7.*@dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "BlockChain": "src/"
+        }
+    }
+}
