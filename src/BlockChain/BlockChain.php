@@ -60,7 +60,7 @@ class BlockChain
     public static function CreateAddress($wallet_id, $main_password, $label, $second_password = "")
     {
         $instance = new Address($wallet_id, $main_password);
-        return $instance->createAddress($second_password, $label);
+        return $instance->createAddress($label, $second_password);
     }
 
     /**
@@ -72,7 +72,7 @@ class BlockChain
      * @param int $confirmations Minimum number of confirmations required. By default 0 for unconfirmed.
      * @return string
      */
-    public static function GetAddressBalance($wallet_id, $main_password, $address, $confirmations)
+    public static function GetAddressBalance($wallet_id, $main_password, $address, $confirmations = 0)
     {
         $instance = new Address($wallet_id, $main_password);
         return $instance->getBalance($address, $confirmations);
@@ -88,10 +88,10 @@ class BlockChain
      * @param string $second_password Your second My Wallet password if double encryption is enabled.
      * @return string
      */
-    public static function ArchiveAddress($wallet_id, $main_password, $address, $second_password)
+    public static function ArchiveAddress($wallet_id, $main_password, $address, $second_password = "")
     {
         $instance = new Address($wallet_id, $main_password);
-        return $instance->archiveAddress($second_password, $address);
+        return $instance->archiveAddress($address, $second_password);
     }
 
     /**
@@ -103,10 +103,10 @@ class BlockChain
      * @param string $second_password Your second My Wallet password if double encryption is enabled.
      * @return string
      */
-    public static function UnArchiveAddress($wallet_id, $main_password, $address, $second_password)
+    public static function UnArchiveAddress($wallet_id, $main_password, $address, $second_password = "")
     {
         $instance = new Address($wallet_id, $main_password);
-        return $instance->unArchiveAddress($second_password, $address);
+        return $instance->unArchiveAddress($address, $second_password);
     }
 
     /**
@@ -119,10 +119,10 @@ class BlockChain
      * @param string $second_password Your second My Wallet password if double encryption is enabled
      * @return string
      */
-    public static function ConsolidateAddress($wallet_id, $main_password, $days, $second_password)
+    public static function ConsolidateAddress($wallet_id, $main_password, $days, $second_password = "")
     {
         $instance = new Address($wallet_id, $main_password);
-        return $instance->consolidateAddress($second_password, $days);
+        return $instance->consolidateAddress($days, $second_password);
     }
 
     /**
@@ -139,7 +139,7 @@ class BlockChain
      * @param string $second_password Your second My Wallet password if double encryption is enabled
      * @return string
      */
-    public static function Pay($wallet_id, $main_password, $from, $to, $amount, $shared = false, $fee, $note, $second_password = "")
+    public static function Pay($wallet_id, $main_password, $from, $to, $amount, $shared = false, $fee = "", $note = "", $second_password = "")
     {
         $instance = new Payments($wallet_id, $main_password);
         return $instance->send($from, $to, $amount, $shared, $fee, $note, $second_password);
@@ -159,7 +159,7 @@ class BlockChain
      * @param string $second_password Your second My Wallet password if double encryption is enabled
      * @return string
      */
-    public static function PayToMany($wallet_id, $main_password, $from, array $recipients, $amount, $shared = false, $fee, $note, $second_password = "")
+    public static function PayToMany($wallet_id, $main_password, $from, array $recipients, $amount, $shared = false, $fee = "", $note = "", $second_password = "")
     {
         $instance = new Payments($wallet_id, $main_password);
         return $instance->send($from, $recipients, $amount, $shared, $fee, $note, $second_password);
