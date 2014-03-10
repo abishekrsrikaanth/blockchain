@@ -44,7 +44,7 @@ class Wallet extends Base
             $payload['email'] = $email;
         }
 
-        $request = $this->_client->post($this->_api_url . '/create_wallet', null, $payload);
+        $request = $this->_client->post($this->_api_url . 'create_wallet', null, $payload);
         return $this->_send($request);
 
     }
