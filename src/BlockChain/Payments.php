@@ -49,7 +49,7 @@ class Payments extends Base
             $data['fee'] = $fee;
         }
 
-        if (!empty($noe)) {
+        if (!empty($note)) {
             $data['note'] = $note;
         }
 
